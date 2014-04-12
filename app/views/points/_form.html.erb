@@ -1,0 +1,77 @@
+<%= form_for(@point) do |f| %>
+  <% if @point.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@point.errors.count, "error") %> prohibited this point from being saved:</h2>
+
+      <ul>
+      <% @point.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :shortAddr %><br>
+    <%= f.number_field :shortAddr %>
+  </div>
+  <div class="field">
+    <%= f.label :extAddr %><br>
+    <%= f.text_field :extAddr %>
+  </div>
+  <div class="field">
+    <%= f.label :nodeType %><br>
+    <%= f.text_field :nodeType %>
+  </div>
+  <div class="field">
+    <%= f.label :temperature %><br>
+    <%= f.number_field :temperature %>
+  </div>
+  <div class="field">
+    <%= f.label :softVersion %><br>
+    <%= f.number_field :softVersion %>
+  </div>
+  <div class="field">
+    <%= f.label :battery %><br>
+    <%= f.number_field :battery %>
+  </div>
+  <div class="field">
+    <%= f.label :light %><br>
+    <%= f.number_field :light %>
+  </div>
+  <div class="field">
+    <%= f.label :messageType %><br>
+    <%= f.number_field :messageType %>
+  </div>
+  <div class="field">
+    <%= f.label :workingChannel %><br>
+    <%= f.number_field :workingChannel %>
+  </div>
+  <div class="field">
+    <%= f.label :sensorsSize %><br>
+    <%= f.number_field :sensorsSize %>
+  </div>
+  <div class="field">
+    <%= f.label :lqi %><br>
+    <%= f.number_field :lqi %>
+  </div>
+  <div class="field">
+    <%= f.label :rssi %><br>
+    <%= f.number_field :rssi %>
+  </div>
+  <div class="field">
+    <%= f.label :parentShortAddr %><br>
+    <%= f.number_field :parentShortAddr %>
+  </div>
+  <div class="field">
+    <%= f.label :panID %><br>
+    <%= f.number_field :painID %>
+  </div>
+  <div class="field">
+    <%= f.label :channelMask %><br>
+    <%= f.number_field :channelMask %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

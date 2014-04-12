@@ -6,6 +6,8 @@ gem 'rails', '4.0.1'
 # Use sqlite3 as the database for Active Record in Dev, MySqL in production
 group :development, :test do
 	gem 'sqlite3'
+	#Better Errors for debug
+    gem 'better_errors'
 end
 
 group :production do
@@ -17,6 +19,13 @@ gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+
+#Use bootsrap to make things pretty
+gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootstrap_form'
+gem 'bootstrap-sass-extras'
+
+
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'

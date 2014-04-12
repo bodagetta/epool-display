@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Shortaddr:</strong>
+  <%= @point.shortAddr %>
+</p>
+
+<p>
+  <strong>Extaddr:</strong>
+  <%= @point.extAddr %>
+</p>
+
+<p>
+  <strong>Nodetype:</strong>
+  <%= @point.nodeType %>
+</p>
+
+<p>
+  <strong>Temperature:</strong>
+  <%= @point.temperature %>
+</p>
+
+<p>
+  <strong>Softversion:</strong>
+  <%= @point.softVersion %>
+</p>
+
+<p>
+  <strong>Battery:</strong>
+  <%= @point.battery %>
+</p>
+
+<p>
+  <strong>Light:</strong>
+  <%= @point.light %>
+</p>
+
+<p>
+  <strong>Messagetype:</strong>
+  <%= @point.messageType %>
+</p>
+
+<p>
+  <strong>Workingchannel:</strong>
+  <%= @point.workingChannel %>
+</p>
+
+<p>
+  <strong>Sensorssize:</strong>
+  <%= @point.sensorsSize %>
+</p>
+
+<p>
+  <strong>Lqi:</strong>
+  <%= @point.lqi %>
+</p>
+
+<p>
+  <strong>Rssi:</strong>
+  <%= @point.rssi %>
+</p>
+
+<p>
+  <strong>Parentshortaddr:</strong>
+  <%= @point.parentShortAddr %>
+</p>
+
+<p>
+  <strong>Panid:</strong>
+  <%= @point.panID %>
+</p>
+
+<p>
+  <strong>Channelmask:</strong>
+  <%= @point.channelMask %>
+</p>
+
+<%= link_to 'Edit', edit_point_path(@point) %> |
+<%= link_to 'Back', points_path %>

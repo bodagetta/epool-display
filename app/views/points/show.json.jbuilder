@@ -1,0 +1,1 @@
+json.extract! @point, :id, :shortAddr, :extAddr, :nodeType, :temperature, :softVersion, :battery, :light, :messageType, :workingChannel, :sensorsSize, :lqi, :rssi, :parentShortAddr, :panID, :channelMask, :created_at, :updated_at

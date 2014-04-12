@@ -1,0 +1,55 @@
+<h1>Listing points</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Shortaddr</th>
+      <th>Extaddr</th>
+      <th>Nodetype</th>
+      <th>Temperature</th>
+      <th>Softversion</th>
+      <th>Battery</th>
+      <th>Light</th>
+      <th>Messagetype</th>
+      <th>Workingchannel</th>
+      <th>Sensorsize</th>
+      <th>Lqi</th>
+      <th>Rssi</th>
+      <th>Parentshortaddr</th>
+      <th>Painid</th>
+      <th>Channelmask</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @points.each do |point| %>
+      <tr>
+        <td><%= point.shortAddr %></td>
+        <td><%= point.extAddr %></td>
+        <td><%= point.nodeType %></td>
+        <td><%= point.temperature %></td>
+        <td><%= point.softVersion %></td>
+        <td><%= point.battery %></td>
+        <td><%= point.light %></td>
+        <td><%= point.messageType %></td>
+        <td><%= point.workingChannel %></td>
+        <td><%= point.sensorsSize %></td>
+        <td><%= point.lqi %></td>
+        <td><%= point.rssi %></td>
+        <td><%= point.parentShortAddr %></td>
+        <td><%= point.panID %></td>
+        <td><%= point.channelMask %></td>
+        <td><%= link_to 'Show', point %></td>
+        <td><%= link_to 'Edit', edit_point_path(point) %></td>
+        <td><%= link_to 'Destroy', point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Point', new_point_path %>

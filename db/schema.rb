@@ -11,6 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140412151323) do
+
+  create_table "points", force: true do |t|
+    t.integer  "shortAddr"
+    t.string   "extAddr"
+    t.string   "nodeType"
+    t.integer  "temperature"
+    t.integer  "softVersion"
+    t.integer  "battery"
+    t.integer  "light"
+    t.integer  "messageType"
+    t.integer  "workingChannel"
+    t.integer  "sensorsSize"
+    t.integer  "lqi"
+    t.integer  "rssi"
+    t.integer  "parentShortAddr"
+    t.integer  "panID"
+    t.string   "channelMask"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

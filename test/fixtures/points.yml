@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shortAddr: 1
+  extAddr: MyString
+  nodeType: MyString
+  temperature: 1
+  softVersion: 1
+  battery: 1
+  light: 1
+  messageType: 1
+  workingChannel: 1
+  sensorSize: 1
+  lqi: 1
+  rssi: 1
+  parentShortAddr: 1
+  painID: 1
+  channelMask: 1
+
+two:
+  shortAddr: 1
+  extAddr: MyString
+  nodeType: MyString
+  temperature: 1
+  softVersion: 1
+  battery: 1
+  light: 1
+  messageType: 1
+  workingChannel: 1
+  sensorSize: 1
+  lqi: 1
+  rssi: 1
+  parentShortAddr: 1
+  painID: 1
+  channelMask: 1
