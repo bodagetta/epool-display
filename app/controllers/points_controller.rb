@@ -5,6 +5,30 @@ class PointsController < ApplicationController
   # GET /points.json
   def index
     @points = Point.all
+
+    data_table = GoogleVisualr::DataTable.new
+    # Add Column Headers
+    data_table.new_column('number', 'DateTime' )
+    data_table.new_column('number', 'Temperature (raw)')
+    #data_table.add_rows([
+    #['2004', 1000],
+    #['2005', 1170],
+    #['2006', 660],
+    #['2007', 1030]
+    #])
+    dataArray = Array.new
+    Point.all.each do |point|
+      elementArray = Array.new
+      elementArray.push(point.id)
+      elementArray.push(point.temperature)
+      dataArray.push(elementArray)
+    end
+
+    data_table.add_rows(dataArray)
+
+    option = { width: 600, height: 400, title: 'Raw Temperature Data' }
+    @chart = GoogleVisualr::Interactive::AreaChart.new(data_table, option)
+
   end
 
   # GET /points/1

@@ -8,6 +8,7 @@ group :development, :test do
 	gem 'sqlite3'
 	#Better Errors for debug
     gem 'better_errors'
+    gem 'binding_of_caller'
 end
 
 group :production do
@@ -25,6 +26,8 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'bootstrap_form'
 gem 'bootstrap-sass-extras'
 
+#Google Charts
+gem "google_visualr", ">= 2.1"
 
 
 # Use CoffeeScript for .js.coffee assets and views
