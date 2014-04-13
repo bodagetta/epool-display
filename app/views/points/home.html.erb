@@ -1,0 +1,5 @@
+<center><h1><%= (@last_measurement.temperature * -0.1367 + 167.31).round(2) %> F<br/></h1></center>
+<center><%= distance_of_time_in_words(Time.now - @last_measurement.created_at)  %> ago</center>
+
+<div id='chart'></div>
+<%= render_chart(@chart, 'chart') %>

@@ -1,6 +1,27 @@
 class PointsController < ApplicationController
   before_action :set_point, only: [:show, :edit, :update, :destroy]
 
+  def home
+    @last_measurement = Point.last
+
+    data_table = GoogleVisualr::DataTable.new
+    # Add Column Headers
+    data_table.new_column('datetime', 'DateTime' )
+    data_table.new_column('number', 'Temperature')
+    dataArray = Array.new
+    Point.all.each do |point|
+      elementArray = Array.new
+      elementArray.push(point.created_at - 5.hours)
+      elementArray.push(point.temperature*-0.1367 + 167.31)
+      dataArray.push(elementArray)
+    end
+
+    data_table.add_rows(dataArray)
+
+    option = { width: 1000, height: 400, title: 'Pool Temperature Data' }
+    @chart = GoogleVisualr::Interactive::AreaChart.new(data_table, option)
+  end
+
   # GET /points
   # GET /points.json
   def index
