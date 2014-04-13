@@ -8,7 +8,7 @@ class PointsController < ApplicationController
 
     data_table = GoogleVisualr::DataTable.new
     # Add Column Headers
-    data_table.new_column('number', 'DateTime' )
+    data_table.new_column('datetime', 'DateTime' )
     data_table.new_column('number', 'Temperature (raw)')
     #data_table.add_rows([
     #['2004', 1000],
@@ -19,7 +19,7 @@ class PointsController < ApplicationController
     dataArray = Array.new
     Point.all.each do |point|
       elementArray = Array.new
-      elementArray.push(point.id)
+      elementArray.push(point.created_at)
       elementArray.push(point.temperature)
       dataArray.push(elementArray)
     end
