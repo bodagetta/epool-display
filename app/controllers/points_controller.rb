@@ -19,14 +19,14 @@ class PointsController < ApplicationController
     dataArray = Array.new
     Point.all.each do |point|
       elementArray = Array.new
-      elementArray.push(point.created_at)
+      elementArray.push(point.created_at - 5.hours)
       elementArray.push(point.temperature)
       dataArray.push(elementArray)
     end
 
     data_table.add_rows(dataArray)
 
-    option = { width: 600, height: 400, title: 'Raw Temperature Data' }
+    option = { width: 800, height: 400, title: 'Raw Temperature Data' }
     @chart = GoogleVisualr::Interactive::AreaChart.new(data_table, option)
 
   end
