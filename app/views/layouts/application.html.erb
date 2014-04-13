@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EpoolDisplay</title>
+  <title>Michael's Pool</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <script src='https://www.google.com/jsapi'></script>
+  <%= analytics_init if Rails.env.production? %>
 </head>
 <body>
 
