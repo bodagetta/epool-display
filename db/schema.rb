@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412151323) do
+ActiveRecord::Schema.define(version: 20140413234740) do
 
   create_table "points", force: true do |t|
     t.integer  "shortAddr"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140412151323) do
     t.string   "channelMask"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "outside_temp"
   end
 
 end

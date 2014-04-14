@@ -7,12 +7,14 @@ class PointsController < ApplicationController
     data_table = GoogleVisualr::DataTable.new
     # Add Column Headers
     data_table.new_column('datetime', 'DateTime' )
-    data_table.new_column('number', 'Temperature')
+    data_table.new_column('number', 'Pool Temperature')
+    data_table.new_column('number', 'Outside Temperature')
     dataArray = Array.new
     Point.all.each do |point|
       elementArray = Array.new
       elementArray.push(point.created_at - 5.hours)
       elementArray.push(point.temperature*-0.1367 + 167.31)
+      elementArray.push(point.outside_temp)
       dataArray.push(elementArray)
     end
 
@@ -64,6 +66,9 @@ class PointsController < ApplicationController
   # POST /points.json
   def create
     @point = Point.new(point_params)
+    w_api = Wunderground.new("ad4183bab05ee8de")
+    current_conditions = w_api.conditions_for("35757")
+    @point.outside_temp = current_conditions["current_observation"]["temp_f"]
 
     respond_to do |format|
       if @point.save

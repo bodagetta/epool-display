@@ -29,6 +29,9 @@ gem 'bootstrap-sass-extras'
 #Google Analytics
 gem 'google-analytics-rails'
 
+#Wunderground
+gem 'wunderground'
+
 #Google Charts
 gem "google_visualr", ">= 2.1"
 
