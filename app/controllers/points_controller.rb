@@ -9,8 +9,13 @@ class PointsController < ApplicationController
     data_table.new_column('datetime', 'DateTime' )
     data_table.new_column('number', 'Pool Temperature')
     data_table.new_column('number', 'Outside Temperature')
+    @myPoints = Point.from(
+           Point.select("max(unix_timestamp(created_at)) as max_timestamp")
+                .group("HOUR(created_at)") # subquery
+          )
+     .joins("INNER JOIN points ON subquery.max_timestamp = unix_timestamp(created_at)")
     dataArray = Array.new
-    Point.all.each do |point|
+    @myPoints.each do |point|
       elementArray = Array.new
       elementArray.push(point.created_at - 5.hours)
       elementArray.push(point.temperature*-0.1367 + 167.31)
