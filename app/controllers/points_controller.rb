@@ -15,7 +15,7 @@ class PointsController < ApplicationController
           )
      .joins("INNER JOIN points ON subquery.max_timestamp = unix_timestamp(created_at)")
     dataArray = Array.new
-    @myPoints.each do |point|
+    Point.all.each do |point|
       elementArray = Array.new
       elementArray.push(point.created_at - 5.hours)
       elementArray.push(point.temperature*-0.1367 + 167.31)
