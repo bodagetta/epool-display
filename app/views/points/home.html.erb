@@ -1,5 +1,8 @@
 <center><h1><%= (@last_measurement.temperature * -0.1367 + 167.31).round(2) %> F<br/></h1></center>
 <center><%= distance_of_time_in_words(Time.now - @last_measurement.created_at)  %> ago</center>
 <center><%= Point.all.count %> points</center>
-<div id='chart'></div>
+<div id='chart'></div><br/>
+<div id='chart_ph'></div>
 <%= render_chart(@chart, 'chart') %>
+
+<%= render_chart(@chart_ph, 'chart_ph') %>

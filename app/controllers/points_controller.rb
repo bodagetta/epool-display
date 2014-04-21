@@ -27,6 +27,24 @@ class PointsController < ApplicationController
 
     option = { width: 1000, height: 400, title: 'Pool Temperature Data' }
     @chart = GoogleVisualr::Interactive::AreaChart.new(data_table, option)
+
+    #pH charts
+    data_table_ph = GoogleVisualr::DataTable.new
+    # Add Column Headers
+    data_table_ph.new_column('datetime', 'DateTime' )
+    data_table_ph.new_column('number', 'pH')
+    dataArray_ph = Array.new
+    Point.all.each do |point|
+      elementArray_ph = Array.new
+      elementArray_ph.push(point.created_at - 5.hours)
+      elementArray_ph.push(point.ph * -0.0168 + 15.699)
+      dataArray_ph.push(elementArray)
+    end
+
+    data_table_ph.add_rows(dataArray)
+
+    option_ph = { width: 1000, height: 400, title: 'Pool pH Data' }
+    @chart_ph = GoogleVisualr::Interactive::AreaChart.new(data_table_ph, option_ph)
   end
 
   # GET /points
