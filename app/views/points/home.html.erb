@@ -1,4 +1,6 @@
 <center><h1><%= (@last_measurement.temperature * -0.1367 + 167.31).round(2) %> F<br/></h1></center>
+<center>pH: <%= (@last_measurement.ph * -0.0168 + 15.699).round(2) %></center>
+<center>ORP: <%= (@last_measurement.orp - 520) %> mV</center>
 <center><%= distance_of_time_in_words(Time.now - @last_measurement.created_at)  %> ago</center>
 <center><%= Point.all.count %> points</center>
 <div id='chart'></div><br/>
