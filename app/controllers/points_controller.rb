@@ -37,11 +37,15 @@ class PointsController < ApplicationController
     Point.all.each do |point|
       elementArray_ph = Array.new
       elementArray_ph.push(point.created_at - 5.hours)
-      elementArray_ph.push(point.ph * -0.0168 + 15.699)
-      dataArray_ph.push(elementArray)
+      if point.ph
+        elementArray_ph.push(point.ph * -0.0168 + 15.699)
+      else 
+        elementArray_ph.push(0)
+      end
+      dataArray_ph.push(elementArray_ph)
     end
 
-    data_table_ph.add_rows(dataArray)
+    data_table_ph.add_rows(dataArray_ph)
 
     option_ph = { width: 1000, height: 400, title: 'Pool pH Data' }
     @chart_ph = GoogleVisualr::Interactive::AreaChart.new(data_table_ph, option_ph)
