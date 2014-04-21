@@ -38,7 +38,7 @@ class PointsController < ApplicationController
       elementArray_ph = Array.new
       elementArray_ph.push(point.created_at - 5.hours)
       if point.ph
-        elementArray_ph.push(point.ph * -0.0168 + 15.699)
+        elementArray_ph.push((point.ph * -0.0168 + 15.699).round(2))
       else 
         elementArray_ph.push(0)
       end
