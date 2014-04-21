@@ -3,6 +3,9 @@
 <center><%= Point.all.count %> points</center>
 <div id='chart'></div><br/>
 <div id='chart_ph'></div>
+<div id='chart_orp'></div>
 <%= render_chart(@chart, 'chart') %>
 
 <%= render_chart(@chart_ph, 'chart_ph') %>
+
+<%= render_chart(@chart_ph, 'chart_orp') %>

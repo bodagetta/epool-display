@@ -49,6 +49,28 @@ class PointsController < ApplicationController
 
     option_ph = { width: 1000, height: 400, title: 'Pool pH Data' }
     @chart_ph = GoogleVisualr::Interactive::AreaChart.new(data_table_ph, option_ph)
+
+    #ORP charts
+    data_table_orp = GoogleVisualr::DataTable.new
+    # Add Column Headers
+    data_table_orp.new_column('datetime', 'DateTime' )
+    data_table_orp.new_column('number', 'ORP (mV)')
+    dataArray_orp = Array.new
+    Point.all.each do |point|
+      elementArray_orp = Array.new
+      elementArray_orp.push(point.created_at - 5.hours)
+      if point.orp
+        elementArray_orp.push(point.orp - 520)
+      else 
+        elementArray_orp.push(0)
+      end
+      dataArray_orp.push(elementArray_orp)
+    end
+
+    data_table_orp.add_rows(dataArray_orp)
+
+    option_orp = { width: 1000, height: 400, title: 'Pool ORP Data' }
+    @chart_orp = GoogleVisualr::Interactive::AreaChart.new(data_table_orp, option_orp)
   end
 
   # GET /points
@@ -140,6 +162,6 @@ class PointsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def point_params
-      params.require(:point).permit(:shortAddr, :extAddr, :nodeType, :temperature, :softVersion, :battery, :light, :messageType, :workingChannel, :sensorsSize, :lqi, :rssi, :parentShortAddr, :panID, :channelMask) if params[:point]
+      params.require(:point).permit(:shortAddr, :extAddr, :nodeType, :temperature, :softVersion, :battery, :light, :messageType, :workingChannel, :sensorsSize, :lqi, :rssi, :parentShortAddr, :panID, :channelMask, :ph, :orp) if params[:point]
     end
 end
